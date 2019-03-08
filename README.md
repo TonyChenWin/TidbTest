@@ -3,7 +3,7 @@ Tidb test framework
 
 能用的接口：
 
-1、tidb部署（可指定pd和tikv个数）
+## 1、tidb部署（可指定pd和tikv个数）
 
 2、获取case列表
 
