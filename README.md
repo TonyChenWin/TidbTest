@@ -1,6 +1,13 @@
 # TidbTest
 Tidb test framework
 
+能用的接口：
+1、tidb部署（可指定pd和tikv个数）
+2、获取case列表
+3、执行指定的cases
+4、停止服务（可停止指定的一个服务，或者停止整个集群）
+
+
 ## 1、tidb部署（可指定pd和tikv个数）：
 
 方法：POST
@@ -38,7 +45,7 @@ Tidb test framework
 参考返回：{"id":"6f811153-afb3-4f43-b367-364bd04970aa","code":200,"message":"OK","data":{"runNum":2,"failNum":2,"passNum":0,"failResultDetail":{"disabled_storage_engines.test":{"cmd":null,"runningLogs":["[info] not ok","[error] mysqltest: Could not open connection 'default': 2013 Lost connection to MySQL server at 'reading initial communication packet', system error: 0"],"pass":false},"bug12427262.test":{"cmd":null,"runningLogs":["[info] not ok","[error] mysqltest: Could not open connection 'default': 2013 Lost connection to MySQL server at 'reading initial communication packet', system error: 0"],"pass":false}},"passResultDetail":{}}}
 
 
-## 4、停止指定的服务
+## 4、停止服务
 
 方法：POST
 
