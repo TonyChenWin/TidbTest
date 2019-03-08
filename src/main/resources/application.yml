@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+tidb_test:
+  case_path: /Users/tonychen/Downloads/mysql-5.7.25-macos10.14-x86_64/mysql-test/t
+  deploy_yml_path: /Users/tonychen/Projects/tidb/tidb-docker-compose/deploy.yml
+  generate_deploy_yml_path: /Users/tonychen/Projects/tidb/tidb-docker-compose/generated-deploy-docker-compose.yml
+  compose_path: /Users/tonychen/Projects/tidb/tidb-docker-compose/compose
+  tidb_host: 127.0.0.1
+  tidb_port: 4000
+  cmd:
+    stop_server: /usr/local/bin/docker-compose -f &{generate_deploy_yml_path} stop
+    run_case: /Users/tonychen/Downloads/mysql-5.7.25-macos10.14-x86_64/bin/mysqltest -h&{tidb_host} -P&{tidb_port} -uroot -x &{case_path}/
+    generate_deploy_yml: /usr/local/bin/helm template -f &{deploy_yml_path} &{compose_path} > &{generate_deploy_yml_path}
+    download_tidb_docker: /usr/local/bin/docker-compose -f &{generate_deploy_yml_path} pull
+    run_tidb_docker: /usr/local/bin/docker-compose -f &{generate_deploy_yml_path} up -d
