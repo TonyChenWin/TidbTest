@@ -2,9 +2,13 @@
 Tidb test framework
 
 能用的接口：
+
 1、tidb部署（可指定pd和tikv个数）
+
 2、获取case列表
+
 3、执行指定的cases
+
 4、停止服务（可停止指定的一个服务，或者停止整个集群）
 
 
